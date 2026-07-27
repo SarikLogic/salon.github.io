@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noza Go'zallik Saloni</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --light-gold: #FBF7E8;
+            --black: #000000;
+            --white: #ffffff;
+            --gray: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--black);
+        }
+
+        /* Header Qismi */
+        header {
+            background: linear-gradient(to right, var(--white), var(--light-gold));
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--black);
+            letter-spacing: 1px;
+        }
+
+        header p {
+            margin-top: 15px;
+            color: #555;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        /* Xizmatlar Galereyasi */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .service-block {
+            margin-bottom: 60px;
+        }
+
+        .service-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: var(--black);
+            display: inline-block;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 5px;
+        }
+
+        /* Karusel Stillari */
+        .swiper {
+            width: 100%;
+            padding: 20px 0 50px;
+        }
+
+        .swiper-slide {
+            background: var(--white);
+            border: 1px solid #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            width: 280px;
+            text-align: center;
+        }
+
+        .image-box {
+            width: 100%;
+            height: 280px;
+            background-color: #f0f0f0;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ph-text {
+            color: #aaa;
+            font-size: 14px;
+            text-align: center;
+            background: rgba(255,255,255,0.8);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .image-code {
+            padding: 15px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--black);
+            border-top: 1px solid #eee;
+        }
+
+        .select-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: var(--gold);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .select-btn:hover {
+            background: var(--black);
+            color: var(--gold);
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: var(--gold) !important;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--gold) !important;
+        }
+
+        /* Rezervatsiya Formasi */
+        .booking-section {
+            background: var(--light-gold);
+            padding: 60px 20px;
+            border-top: 2px solid var(--gold);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid var(--gold);
+        }
+
+        .form-container h2 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--black);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--black);
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background: var(--gray);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: var(--white);
+        }
+
+        .form-group input:read-only {
+            font-weight: bold;
+            color: var(--gold);
+            background: #fff;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--black);
+            color: var(--gold);
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--gold);
+            color: var(--white);
+        }
+
+        footer {
+            background: var(--black);
+            color: var(--gold);
+            text-align: center;
+            padding: 30px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Noza Go'zallik Saloni</h1>
+        <p>Sizning xohishingiz - bizning mahoratimiz</p>
+    </header>
+
+    <!-- Rasmlar Galereyasi -->
+    <div class="container" id="gallery">
+        <!-- JavaScript orqali shu yerga xizmatlar va rasmlar joylanadi -->
+    </div>
+
+    <!-- Rezervatsiya Qismi -->
+    <div class="booking-section" id="booking">
+        <div class="form-container">
+            <h2>Online yozish</h2>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="name">Ismingiz:</label>
+                    <input type="text" id="name" placeholder="Ismingizni kiriting" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefon raqamingiz:</label>
+                    <input type="tel" id="phone" placeholder="+998 90 123 45 67" required>
+                </div>
+                <div class="form-group">
+                    <label for="code">Tanlangan rasm kodi:</label>
+                    <input type="text" id="code" placeholder="Yuqoridagi rasmlardan birini tanlang" readonly required>
+                </div>
+                <div class="form-group">
+                    <label for="desc">Qisqacha ma'lumot:</label>
+                    <textarea id="desc" rows="4" placeholder="Nima xohlayotganingiz haqida qisqacha yozing..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Yuborish</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Noza Go'zallik Saloni. Barcha huquqlar himoyalangan.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        // Xizmatlar ro'yxati va rasmlari. Har bir xizmatga xohlagancha rasm qo'shishingiz mumkin.
+        // Rasm manzilini (masalan: 'images/makyaj1.jpg') yozing. 
+        // Yana rasm qo'shish uchun vergul qo'yib '', yozib ketaverasiz.
+        const services = [
+            { 
+                name: "Makyaj", 
+                prefix: "MK",
+                images: ['foto/mk/mk1.jpg', 'foto/mk/mk2.jpg', 'foto/mk/mk3.jpg', 'foto/mk/mk4.jpg', 'foto/mk/mk5.jpg']
+            },
+            { 
+                name: "Pricheska", 
+                prefix: "PR",
+                images: ['foto/pr/pr1.jpg', 'foto/pr/pr2.jpg', 'foto/pr/pr3.jpg', 'foto/pr/pr4.jpg', 'foto/pr/pr5.jpg']
+            },
+            { 
+                name: "Tirnoq", 
+                prefix: "TN",
+                images: ['foto/tn/tn1.jpg', 'foto/tn/tn2.jpg', 'foto/tn/tn3.jpg', 'foto/tn/tn4.jpg', 'foto/tn/tn5.jpg']
+            },
+            { 
+                name: "Quloq teshish", 
+                prefix: "QT",
+                images: ['foto/qt/qt1.jpg', 'foto/qt/qt2.jpg', 'foto/qt/qt3.jpg', 'foto/qt/qt4.jpg', 'foto/qt/qt5.jpg']
+            },
+            { 
+                name: "Depilatsiya", 
+                prefix: "DP",
+                images: ['foto/dp/dp1.jpg', 'foto/dp/dp2.jpg', 'foto/dp/dp3.jpg', 'foto/dp/dp4.jpg', 'foto/dp/dp5.jpg']
+            },
+            { 
+                name: "Kiprik ekish", 
+                prefix: "KE",
+                images: ['foto/ke/ke1.jpg', 'foto/ke/ke2.jpg', 'foto/ke/ke3.jpg', 'foto/ke/ke4.jpg', 'foto/ke/ke5.jpg']
+            },
+            { 
+                name: "Qosh yuz terish", 
+                prefix: "QYT",
+                images: ['foto/qyt/qyt1.jpg', 'foto/qyt/qyt2.jpg', 'foto/qyt/qyt3.jpg', 'foto/qyt/qyt4.jpg', 'foto/qyt/qyt5.jpg']
+            },
+            { 
+                name: "Qosh kipriklari laminatsiyasi", 
+                prefix: "QKL",
+                images: ['foto/qkl/qkl1.jpg', 'foto/qkl/qkl2.jpg', 'foto/qkl/qkl3.jpg', 'foto/qkl/qkl4.jpg', 'foto/qkl/qkl5.jpg']
+            },
+            { 
+                name: "Keratin", 
+                prefix: "KR",
+                images: ['foto/kr/kr1.jpg', 'foto/kr/kr2.jpg', 'foto/kr/kr3.jpg', 'foto/kr/kr4.jpg', 'foto/kr/kr5.jpg']
+            },
+            { 
+                name: "Boteks", 
+                prefix: "BT",
+                images: ['foto/bt/bt1.jpg', 'foto/bt/bt2.jpg', 'foto/bt/bt3.jpg', 'foto/bt/bt4.jpg', 'foto/bt/bt5.jpg']
+            },
+            { 
+                name: "Colorist ishlari", 
+                prefix: "CL",
+                images: ['foto/cl/cl1.jpg', 'foto/cl/cl2.jpg', 'foto/cl/cl3.jpg', 'foto/cl/cl4.jpg', 'foto/cl/cl5.jpg']
+            }
+        ];
+
+        const galleryDiv = document.getElementById('gallery');
+
+        // Xizmatlar va rasmlarni yaratish
+        services.forEach((service, idx) => {
+            let slides = '';
+            
+            // Xizmatdagi har bir rasm uchun slayd yaratamiz
+            service.images.forEach((imgSrc, i) => {
+                let code = `${service.prefix}-${String(i + 1).padStart(2, '0')}`;
+                
+                // Agar rasm kiritilgan bo'lsa rasm chiqadi, yo'qsa rasm yo'q degan yozuv chiqadi
+                let bgStyle = imgSrc ? `background-image: url('${imgSrc}');` : `background-color: #f0f0f0;`;
+                let phText = imgSrc ? '' : '<span class="ph-text">Rasm shu yerga qo\'yiladi</span>';
+                
+                slides += `
+                    <div class="swiper-slide">
+                        <div class="image-box" style="${bgStyle} background-size: cover; background-position: center;">
+                            ${phText}
+                        </div>
+                        <div class="image-code">Kod: ${code}</div>
+                        <button class="select-btn" data-code="${code}">Shuni tanlash</button>
+                    </div>
+                `;
+            });
+
+            galleryDiv.innerHTML += `
+                <div class="service-block">
+                    <h2 class="service-title">${service.name}</h2>
+                    <div class="swiper swiper-${idx}">
+                        <div class="swiper-wrapper">${slides}</div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            `;
+        });
+
+        // Swiper karusellarni ishga tushirish
+        services.forEach((service, idx) => {
+            new Swiper(`.swiper-${idx}`, {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: true,
+                breakpoints: {
+                    640: { slidesPerView: 2 },
+                    768: { slidesPerView: 3 },
+                    1024: { slidesPerView: 4 }
+                },
+                navigation: {
+                    nextEl: `.swiper-${idx} .swiper-button-next`,
+                    prevEl: `.swiper-${idx} .swiper-button-prev`,
+                },
+                pagination: {
+                    el: `.swiper-${idx} .swiper-pagination`,
+                    clickable: true,
+                }
+            });
+        });
+
+        // Rasm tanlash tugmasi ishlashi
+        document.addEventListener('click', function(e) {
+            if(e.target && e.target.classList.contains('select-btn')) {
+                let code = e.target.getAttribute('data-code');
+                document.getElementById('code').value = code;
+                // Sakrash (scroll) qilib formaga olib keladi
+                document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        // Telegram Botga yuborish funksiyasi
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const code = document.getElementById('code').value;
+            const desc = document.getElementById('desc').value;
+
+            // Bot Tokeningiz
+            const botToken = "8933595045:AAHarpecAo0fqHL02IiVMnKam1vtnOl5ycg";
+            
+            // DIQQAT: O'ZINGIZNING TELEGRAM ID RAQAMINGIZNI SHU YERGA YOZING
+            // (Bilib olish uchun Telegramda @userinfobot ga /start yuboring)
+            const chatId = "7527433500"; 
+
+            const message = `🔔 Yangi Rezervatsiya!\n\n👤 Ismi: ${name}\n📞 Tel: ${phone}\n🎨 Rasm Kodi: ${code}\n📝 Izoh: ${desc}`;
+            
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if(data.ok) {
+                        alert("Muvaffaqiyatli yuborildi! Tez orada bog'lanamiz.");
+                        document.getElementById('bookingForm').reset();
+                    } else {
+                        alert("Xatolik: Iltimos, kod ichidagi 'SIZNING_CHAT_ID' o'rniga o'z Telegram ID raqamingizni kiriting!");
+                    }
+                })
+                .catch(() => alert("Internet bilan muammo yuzaga keldi."));
+        });
+    </script>
+</body>
+</html>
